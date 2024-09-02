@@ -3,7 +3,11 @@ import colors from "colors";
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from "./config/db.js";
-import authRoutes from './routes/authRoute.js';
+import userRoutes from './Routes/userRoutes.js';
+import productRoutes from './Routes/productRoutes.js';
+import reviewRoutes from './Routes/reviewRoutes.js';
+
+
 
 // configure env
 dotenv.config();
@@ -19,7 +23,10 @@ app.use(express.json())//to send json data in req/res
 app.use(morgan('dev'))
 
 // routes
-app.use("/api/v1/auth", authRoutes);
+
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 // rest api (request handling and api response send to user) '/' => for "HOME"
 app.get('/', (req, res) => {

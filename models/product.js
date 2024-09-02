@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
 const productSchema = new Schema({
     shop_name: {
@@ -20,6 +21,9 @@ const productSchema = new Schema({
     category: {
       type: String,
       required: true,
+    },
+    review_agg: {
+      type: Number,
     },
     review_ids: [{
       type: Schema.Types.ObjectId,
